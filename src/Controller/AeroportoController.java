@@ -8,9 +8,6 @@ public class AeroportoController extends Thread {
 	private Random aleatorio = new Random();
 	private static int decidePista;
 	private Semaphore semaforo;
-	private Semaphore escolhePista;
-	private Semaphore preparaDecolagem;
-	private static StringBuffer pista = new StringBuffer("");
 
 	public AeroportoController(int idThread, Semaphore semaforo) {
 		this.idThread = idThread;
@@ -41,7 +38,7 @@ public class AeroportoController extends Thread {
 			e.printStackTrace();
 		}
 		int tempoManobra = aleatorio.nextInt(8); //para ir até 7
-		while(tempoManobra < 3) { //nunca vai ser maior que 7 por conta do limite no nextInt
+		while(tempoManobra < 3) { 
 			tempoManobra = aleatorio.nextInt(8);
 		}
 	}
@@ -63,8 +60,6 @@ public class AeroportoController extends Thread {
 		case 1: System.out.println("\nThread #" + idThread + " irá decolar na Pista Norte!");
 		break;
 		case 2: System.out.println("\nThread #" + idThread + " irá decolar na Pista Sul!");
-		break;
-		default: System.out.println("não vai ocorrer nada mermão");
 		break;
 		}
 	}
